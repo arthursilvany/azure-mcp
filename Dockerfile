@@ -36,4 +36,4 @@ RUN apt-get update && apt-get install -y \
 # Copy the published application
 COPY --from=publish "/app/publish/linux-x64/dist" .
 
-ENTRYPOINT ["dotnet", "azmcp.dll", "server", "start"]
+ENTRYPOINT ["bash", "-c", "dotnet azmcp.dll server start && tail -f /dev/null"]
